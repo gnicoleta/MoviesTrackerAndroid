@@ -33,9 +33,7 @@ public class CustomAdapter extends PagerAdapter {
         inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.swipe, container, false);
         ImageView img = (ImageView) v.findViewById(R.id.imageView);
-        //TextView tv  = (TextView)v.findViewById(R.id.textView);
         img.setImageResource(images[position]);
-        //tv.setText("Image :"+position);
         container.addView(v);
         return v;
     }

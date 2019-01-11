@@ -22,7 +22,6 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import java.util.ArrayList;
 
 public class MoviesListAdapter extends ArrayAdapter<Movie> {
-
     private Context mContext;
     private int mResource;
     private int lastPosition = -1;
@@ -110,15 +109,12 @@ public class MoviesListAdapter extends ArrayAdapter<Movie> {
                 .cacheOnDisc(true).cacheInMemory(true)
                 .imageScaleType(ImageScaleType.EXACTLY)
                 .displayer(new FadeInBitmapDisplayer(300)).build();
-
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
                 mContext)
                 .defaultDisplayImageOptions(defaultOptions)
                 .memoryCache(new WeakMemoryCache())
                 .discCacheSize(100 * 1024 * 1024).build();
-
         ImageLoader.getInstance().init(config);
-        // END - UNIVERSAL IMAGE LOADER SETUP
     }
 }
 

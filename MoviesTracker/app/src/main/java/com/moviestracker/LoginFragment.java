@@ -23,12 +23,9 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_login, null, false);
         super.onCreate(savedInstanceState);
-
         db = new DBHelper(getActivity());
-
         email_txt = (EditText) v.findViewById(R.id.email_login);
         pass_txt = (EditText) v.findViewById(R.id.login_password);
-
         log_in_btn = (Button) v.findViewById(R.id.button_login);
         reg_btn = (Button) v.findViewById(R.id.login_register);
         reg_btn.setOnClickListener(new View.OnClickListener() {

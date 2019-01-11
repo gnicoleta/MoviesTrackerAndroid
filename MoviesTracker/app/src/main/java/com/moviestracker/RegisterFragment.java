@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegisterFragment extends Fragment {
-
     EditText email_txt, name_txt,
             password_txt,
             cpassword_txt;
@@ -24,9 +23,7 @@ public class RegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_register, null, false);
         super.onCreate(savedInstanceState);
-
         db = new DBHelper(getActivity());
-
         email_txt = (EditText) v.findViewById(R.id.email);
         name_txt = (EditText) v.findViewById(R.id.name);
         password_txt = (EditText) v.findViewById(R.id.password);
@@ -71,7 +68,6 @@ public class RegisterFragment extends Fragment {
 
                     } else {
                         Toast.makeText(getActivity(), "Passwords do not match", Toast.LENGTH_SHORT);
-
                     }
                 }
             }

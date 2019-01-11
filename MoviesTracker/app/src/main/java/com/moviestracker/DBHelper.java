@@ -27,12 +27,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String MOVIE_ADDED_AT = "movie_added_at";
     private static final String MOVIE_USER = "movie_user";
 
-//    //this db contains movies and pics
-//    private static final String MOVIES_TABLE = "movies_pic";
-//    private static final String MOVIES_TITLE = "movie_title";
-//    private static final String MOVIES_PIC_URL = "movie_pic_url";
-
-
     private static final String MOVIE_TABLE_CREATE = "create table "
             + MOVIE_TABLE + " ("
             + MOVIE_ID + " integer primary key autoincrement, "
@@ -47,18 +41,12 @@ public class DBHelper extends SQLiteOpenHelper {
             + USER_EMAIL + " text not null, "
             + USER_NAME + " text not null, "
             + USER_PASSWORD + " text not null" + ");";
-//
-//    private static final String MOVIES_TABLE_CREATE = "create table "
-//            + USER_TABLE + " ("
-//            + MOVIES_PIC_URL + " text not null, "
-//            + MOVIES_TITLE + " text not null, "+ ");";
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         //db.execSQL("create table user(email text primary key, name text, password text)");
         db.execSQL(MOVIE_TABLE_CREATE);
         db.execSQL(USER_TABLE_CREATE);
-        //db.execSQL(MOVIES_TABLE_CREATE);
     }
 
     @Override
@@ -69,29 +57,6 @@ public class DBHelper extends SQLiteOpenHelper {
         //create new tables
         onCreate(db);
     }
-//
-//    public Cursor getMoviePic(String movie_title){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        String query = "SELECT * FROM " + MOVIES_TABLE
-//                + " WHERE " + MOVIES_TITLE + " = '" + movie_title + "'";
-//        Cursor data = db.rawQuery(query, null);
-//
-//        if(data.getCount()==-1) {
-//
-//            return data;
-//        }else return null;
-//    }
-
-//    public Cursor getALLMoviePic(){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        String query = "SELECT * FROM " + MOVIES_TABLE;
-//        Cursor data = db.rawQuery(query, null);
-//
-//        if(data.getCount()==-1) {
-//
-//            return data;
-//        }else return null;
-//    }
 
     public int getMoviesSeen(String user_name) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -159,10 +124,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void updateMovie(String oldTitle, String newTitle) {
         SQLiteDatabase db = this.getWritableDatabase();
-//        String query = "UPDATE " + MOVIE_TABLE + " SET " + MOVIE_TITLE +
-//                " = '" + newTitle + "' WHERE " + MOVIE_ID + " = '" + id + "'" +
-//                " AND " + MOVIE_TITLE + " = '" + oldTitle + "'";
-
         String query = "UPDATE " + MOVIE_TABLE + " SET " + MOVIE_TITLE +
                 " = '" + newTitle + "' WHERE " + MOVIE_TITLE + " = '" + oldTitle + "'";
         db.execSQL(query);
@@ -170,11 +131,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void deleteMovie(String title, String user_name) {
         SQLiteDatabase db = this.getWritableDatabase();
-//        String query = "DELETE FROM " + MOVIE_TABLE + " WHERE "
-//                + MOVIE_ID + " = '" + id + "'" +
-//                " AND " +  MOVIE_USER + " = '" + user_name + "'" +
-//                " AND " + MOVIE_TITLE + " = '" + title + "'";
-
         String query = "DELETE FROM " + MOVIE_TABLE + " WHERE "
                 + MOVIE_USER + " = '" + user_name + "'" +
                 " AND " + MOVIE_TITLE + " = '" + title + "'";
