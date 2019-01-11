@@ -22,6 +22,9 @@ public class DisplayMoviesActivity extends Activity {
                     .beginTransaction()
                     .add(android.R.id.content, fragment,
                             fragment.getClass().getSimpleName()).commit();
+
+//            Intent i = new Intent(getApplicationContext(), com.moviestracker.Menu.class);
+//            startActivity(i);
         }
 
     }
@@ -39,8 +42,11 @@ public class DisplayMoviesActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                //startActivity(new Intent(this, SettingsActivity.class));
+            case R.id.action_profile:
+                startActivity(new Intent(this, UserProfile.class));
+                return true;
+            case R.id.action_view_movies:
+                startActivity(new Intent(this, DisplayMoviesActivity.class));
                 return true;
             case R.id.action_add_movie:
                 startActivity(new Intent(this, AddMovieActivity.class));
@@ -50,7 +56,7 @@ public class DisplayMoviesActivity extends Activity {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear();
                 editor.commit();
-                Intent i = new Intent(DisplayMoviesActivity.this, LoginActivity.class);
+                Intent i = new Intent(DisplayMoviesActivity.this, MainActivity.class);
                 startActivity(i);
                 return true;
             }

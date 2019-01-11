@@ -31,8 +31,8 @@ public class RegisterFragment extends Fragment {
         name_txt = (EditText) v.findViewById(R.id.name);
         password_txt = (EditText) v.findViewById(R.id.password);
         cpassword_txt = (EditText) v.findViewById(R.id.confirm_password);
-        reg_btn = (Button)v.findViewById(R.id.button_register);
-        lgn_btn = (Button)v.findViewById(R.id.button2_login);
+        reg_btn = (Button) v.findViewById(R.id.button_register);
+        lgn_btn = (Button) v.findViewById(R.id.button2_login);
 
         lgn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +51,6 @@ public class RegisterFragment extends Fragment {
                 String pass_str = password_txt.getText().toString();
                 String cpass_str = cpassword_txt.getText().toString();
 
-                Log.d("WTF", "HHH");
-
                 if (email_str.equals("") || name_str.equals("") || pass_str.equals("") || cpass_str.equals("")) {
                     Toast.makeText(getActivity(), "Fields cannot be empty", Toast.LENGTH_SHORT).show();
                 } else {
@@ -62,7 +60,7 @@ public class RegisterFragment extends Fragment {
                             boolean insert_qry = db.insert(email_str, name_str, pass_str);
                             if (insert_qry == true) {
                                 Toast.makeText(getActivity(), "Registered succesfully", Toast.LENGTH_SHORT).show();
-                                Intent I=new Intent(getActivity(), DisplayMoviesActivity.class);
+                                Intent I = new Intent(getActivity(), DisplayMoviesActivity.class);
                                 startActivity(I);
                             } else {
                                 Toast.makeText(getActivity(), "Could not register", Toast.LENGTH_SHORT).show();

@@ -1,10 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_profile"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="settings" />
+        android:title="profile" />
+
+    <item
+        android:id="@+id/action_view_movies"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="movies" />
     <item
         android:id="@+id/action_add_movie"
         android:icon="@android:drawable/ic_menu_add"

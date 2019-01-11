@@ -45,15 +45,13 @@ public class EditMovieFragment extends Fragment {
 
         //now get the name we passed as an extra
         //selectedName = receivedIntent.getStringExtra("selected_name");
-        selectedName = preferences.getString("movie_name","");
+        selectedName = preferences.getString("movie_name", "");
 
         //set the text to show the current selected name
         editable_item.setText(selectedName);
-        toastMessage("CE PLM: "+selectedName);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toastMessage("CE PLM: "+selectedName);
                 String item = editable_item.getText().toString();
                 if (!item.equals("")) {
                     //toastMessage(receivedIntent.getStringExtra("selected_name"));
@@ -70,10 +68,9 @@ public class EditMovieFragment extends Fragment {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toastMessage("CE PLM: "+selectedName);
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
                 toastMessage(selectedName);
-                db.deleteMovie(selectedName, preferences.getString("Username",""));
+                db.deleteMovie(selectedName, preferences.getString("Username", ""));
                 editable_item.setText("");
                 toastMessage("removed from database");
                 getActivity().finish();

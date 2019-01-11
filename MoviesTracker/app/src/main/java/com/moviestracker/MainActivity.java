@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewPager = (ViewPager)findViewById(R.id.view_pager);
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
         adapter = new CustomAdapter(this);
         viewPager.setAdapter(adapter);
 
@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             public void run() {
-                if (currentPage == adapter.getCount()-1) {
+                if (currentPage == adapter.getCount() - 1) {
                     currentPage = 0;
                 }
                 viewPager.setCurrentItem(currentPage++, true);
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         };
 
         timer = new Timer(); // This will create a new Thread
-        timer .schedule(new TimerTask() { // task to be scheduled
+        timer.schedule(new TimerTask() { // task to be scheduled
 
             @Override
             public void run() {
@@ -55,8 +55,8 @@ public class MainActivity extends Activity {
             }
         }, DELAY_MS, PERIOD_MS);
 
-        reg_btn=(Button)findViewById(R.id.main_register);
-        lgin_btn=(Button)findViewById(R.id.main_login);
+        reg_btn = (Button) findViewById(R.id.main_register);
+        lgin_btn = (Button) findViewById(R.id.main_login);
 
         lgin_btn.setOnClickListener(new View.OnClickListener() {
             @Override

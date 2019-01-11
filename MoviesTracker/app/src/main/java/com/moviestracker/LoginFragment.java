@@ -54,7 +54,7 @@ public class LoginFragment extends Fragment {
                     editor.putString("Username", email);
                     editor.putString("Password", password);
                     editor.apply();
-                    Intent I=new Intent(getActivity(), DisplayMoviesActivity.class);
+                    Intent I = new Intent(getActivity(), DisplayMoviesActivity.class);
                     startActivity(I);
                 } else {
                     Toast.makeText(getActivity(), "Wrong email or password", Toast.LENGTH_SHORT).show();

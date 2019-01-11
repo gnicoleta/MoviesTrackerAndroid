@@ -10,11 +10,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class CustomAdapter extends PagerAdapter {
-    private int[] images = {R.drawable.pic1,R.drawable.pic2,R.drawable.pic3, R.drawable.pic4};
+    private int[] images = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4};
     private Context ctx;
     private LayoutInflater inflater;
 
-    public CustomAdapter(Context ctx){
+    public CustomAdapter(Context ctx) {
         this.ctx = ctx;
     }
 
@@ -25,14 +25,14 @@ public class CustomAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return (view ==(LinearLayout)object);
+        return (view == (LinearLayout) object);
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        inflater = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.swipe,container,false);
-        ImageView img =(ImageView)v.findViewById(R.id.imageView);
+        inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.swipe, container, false);
+        ImageView img = (ImageView) v.findViewById(R.id.imageView);
         //TextView tv  = (TextView)v.findViewById(R.id.textView);
         img.setImageResource(images[position]);
         //tv.setText("Image :"+position);

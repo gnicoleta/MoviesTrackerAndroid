@@ -35,10 +35,10 @@ public class AddMovieFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                toastMessage(preferences.getString("Username",""));
+                toastMessage(preferences.getString("Username", ""));
                 String item = movie_title.getText().toString();
                 if (!item.equals("")) {
-                    db.addMovie(item,preferences.getString("Username","") );
+                    db.addMovie(item, preferences.getString("Username", ""));
                     getActivity().finish();
                     startActivity(new Intent(getActivity(), DisplayMoviesActivity.class));
                 } else {
@@ -50,7 +50,7 @@ public class AddMovieFragment extends Fragment {
         btnViewMovies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent I=new Intent(getActivity(), DisplayMoviesActivity.class);
+                Intent I = new Intent(getActivity(), DisplayMoviesActivity.class);
                 startActivity(I);
             }
         });
